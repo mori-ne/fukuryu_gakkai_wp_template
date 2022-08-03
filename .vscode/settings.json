@@ -1,0 +1,10 @@
+{
+    // Live Sass Compilerのcssコンパイル先をテーマのルートへ変更
+    "liveSassCompile.settings.formats": [
+        {
+            "format": "expanded",
+            "extensionName": ".css",
+            "savePath": "/"
+        }
+    ],
+}
