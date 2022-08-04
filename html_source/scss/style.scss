@@ -1,0 +1,296 @@
+@charset "UTF-8";
+
+/* ------------------------------------------------------------------ */
+/* --------------------    調整項目    ------------------------------- */
+/* ------------------------------------------------------------------ */
+
+////////////////////////////////////////////////////////////////////////////////
+
+//幅（デフォルト値1000px）
+$content-width: 1000px;
+// sidebarの幅（デフォルト値220px）
+$sidebar-width: 200px;
+// 共通のマージンサイズ
+$space: 25px;
+
+
+// 共通の変数（デフォルト15px）
+$base-font-size: 15px;
+//行の高さ（デフォルト1.6）
+$base-line-height: 1.6;
+
+//背景色
+$bg: #e6e6e6;
+// 見出しの文字色
+$headline-color: #fff;
+// 見出しの背景色
+$headline-bg-color: #aaa;
+//メインの背景色、透明度
+$main-bg: rgba(255, 255, 255, 1);
+// aリンクカラー（static、hover、visited）
+$a-link-color-static: #000;
+$a-link-color-hover: #f00;
+$a-link-color-visited: #500;
+// aリンクの下線有無の設定 none、underlineのどちらかを入れる
+$is-underline-static: none;
+$is-underline-hover: none;
+
+////////////////////////////////////////////////////////////////////////////////
+
+// header 上のボーダーの色
+$header-top-border-color: #eee;
+// header 背景色
+$header-background-color: #ddd;
+// headerの高さ
+$header-height: 100px;
+// header タイトルの色
+$header-title-color: #000;
+// header サブタイトルの色
+$header-subtitle-color: #000;
+// header 背景色
+$header-bg-color: #fff;
+// header 上のボーダーカラー
+$header-top-border-color: #eee;
+//ナビゲーションメニューの文字色
+$nav-menu-color: #000;
+$nav-menu-color-hover: #fff;
+//ナビゲーションメニューの背景色
+$nav-menu-bg: #fff;
+$nav-menu-bg-hover: #666;
+//ナビゲーションメニューの高さ
+$nav-menu-height: 40px;
+//ナビゲーションメニュー間の下の余白
+$nav-menu-bspace: 5px;
+//ナビゲーションメニューの下ボーダーカラー、太さ
+$nav-menu-border-color: #aaa;
+$nav-menu-border-weight: 1px;
+
+////////////////////////////////////////////////////////////////////////////////
+
+
+* {
+    transition: all 0.2s;
+}
+
+body {
+    font-family: 'メイリオ', 'Meiryo', sans-serif;
+    font-size: $base-font-size;
+    line-height: $base-line-height;
+    background: $bg;
+}
+
+a {
+    color: $a-link-color-static;
+    text-decoration: $is-underline-static;
+
+    &:hover {
+        color: $a-link-color-hover;
+        text-decoration: $is-underline-hover;
+    }
+
+    &:visited {
+        color: $a-link-color-visited;
+    }
+}
+
+h2,
+h3,
+h4,
+h5,
+h6 {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    font-size: 1.2em;
+    font-weight: bold;
+    background: $headline-bg-color;
+    color: $headline-color;
+    text-indent: calc($space / 2);
+    padding: 2px;
+    margin-bottom: calc($space / 2);
+}
+
+////////////////////////////// id //////////////////////////////////////////
+
+#wrapper {
+    width: 100%;
+}
+
+#header {
+    position: fixed;
+    top: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    height: $header-height;
+    background: $header-bg-color;
+    border-top: 10px solid $header-top-border-color;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+}
+
+#main {
+    display: flex;
+    flex-direction: row;
+    width: $content-width;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: calc($header-height + $space);
+    background: $main-bg;
+    padding: $space 0 $space $space;
+}
+
+#sidebar {
+    margin: 0 $space 0 0;
+}
+
+#contents {
+    width: 100%;
+
+    article {
+        margin: 0 $space 0 0;
+    }
+}
+
+#footer {
+    width: 100%;
+}
+
+
+////////////////////////////// class ///////////////////////////////////////
+
+.logo {
+    width: 100px;
+    height: $header-height;
+    background-color: #fff;
+    margin-right: $space;
+}
+
+.title {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    .title-en {
+        font-weight: bold;
+        font-size: 0.8em;
+        margin: 0;
+        color: $header-subtitle-color;
+    }
+
+    .title-ja {
+        display: block;
+        font-weight: bold;
+        font-size: 2.4em;
+        color: $header-title-color !important;
+        line-height: 1.1;
+    }
+}
+
+.global-nav {
+    margin: 0 0 $space 0;
+
+    ul {
+        li {
+            margin-bottom: $nav-menu-bspace;
+
+            a {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                width: $sidebar-width;
+                height: $nav-menu-height;
+                background-color: $nav-menu-bg;
+                border-bottom: $nav-menu-border-weight solid $nav-menu-border-color;
+                text-indent: 1em;
+                color: $nav-menu-color;
+                font-weight: bold;
+
+                &:hover {
+                    color: $nav-menu-color-hover;
+                    background: $nav-menu-bg-hover;
+                }
+            }
+        }
+    }
+}
+
+.mv {
+    width: 100%;
+    height: 600px;
+    background: #ccc;
+    margin-top: calc($space * -1);
+    margin-bottom: $space;
+    padding: $space;
+}
+
+.info {
+    border: 1px solid #f00;
+    padding: $space;
+    margin: 0 0 $space 0;
+}
+
+.news {
+    width: 100%;
+    height: 300px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+
+    dl {
+        display: flex;
+        flex-direction: row;
+        border-bottom: $nav-menu-border-weight solid $nav-menu-border-color;
+        margin: 10px 0;
+        padding: 0 0 10px 0;
+
+        dt {
+            font-size: 0.8em;
+            font-weight: normal;
+
+            margin: 0 $space 0 0;
+
+            span {
+                font-size: 0.5em;
+                margin-left: 10px;
+                color: #f00;
+            }
+        }
+
+        dd {
+            font-size: 0.9em;
+            line-height: 1.5;
+        }
+    }
+}
+
+.reload {
+
+    a {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        right: $space;
+        font-size: 0.5em;
+        color: $headline-color;
+    }
+}
+
+.jimu_area {
+    font-size: 0.9em;
+    line-height: 1.4;
+    margin: 0 0 $space 0;
+}
+
+.copyright {
+    width: $content-width;
+    margin: 0 auto;
+    font-size: 0.8em;
+    text-align: center;
+    height: $nav-menu-height;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: $main-bg;
+}
