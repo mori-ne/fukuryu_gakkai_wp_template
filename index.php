@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="reset.css">
-    <link rel="stylesheet" href="style.css">
-    <title>第87回日本温泉気候物理医学会総会・学術集会</title>
+    <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/reset.css">
+    <link rel="stylesheet" href="<?php echo get_stylesheet_uri(); ?>">
+    <title><?php bloginfo('name'); ?></title>
     <script type="text/javascript" src="js/jquery-3.6.0.min.js"></script>
 </head>
 
@@ -19,60 +19,27 @@
             </div>
             <div class="title">
                 <div class="title-en">
-                    <span>The 87th</span> Annual Meeting of the Japanese Society of Balneology, Climatology and Physical
-                    Medicine
+                    <?php bloginfo('description'); ?>
                 </div>
-
-                <h1><a class="title-ja" href="/"><span>第87回</span>日本温泉気候物理医学会総会・学術集会</a></h1>
-
+                <h1><a class="title-ja" href="/"><?php bloginfo('name'); ?></a></h1>
             </div>
         </header>
         <div id="main">
             <aside id="sidebar">
                 <nav class="global-nav">
-                    <ul>
-                        <li><a href="/">HOME</a></li>
-                        <li><a href="/">会長挨拶</a></li>
-                        <li><a href="/">開催概要</a></li>
-                        <li><a href="/">演題登録</a></li>
-                        <li><a href="/">プログラム</a></li>
-                        <li><a href="/">一般演題発表</a></li>
-                        <li><a href="/">参加案内</a></li>
-                        <li><a href="/">ご講演者・座長の皆様へ</a></li>
-                        <li><a href="/">ご案内</a></li>
-                        <li><a href="/">発表動画の提出</a></li>
-                        <li><a href="/">オンデマンド視聴</a></li>
-                        <li><a href="/">会場案内</a></li>
-                    </ul>
+                    <?php
+                    wp_nav_menu(array(
+                        'theme_location' => 'main-menu'
+                    ));
+                    ?>
                 </nav>
-                <div class="jimu_area">
-                    <h2>学会事務局</h2>
-                    <dl>
-                        <dt>日本温泉気候物理医学会</dt>
-                        <dd>
-                            〒104-0061<br>
-                            東京都中央区銀座8-17-5<br>
-                            THE HUB銀座OCT705<br>
-                            TEL：03-3541-0757<br>
-                            FAX：03-3541-0758<br>
-                            E-mail：info@onki.jp<br>
-                        </dd>
-                    </dl>
-                </div>
-                <div class="jimu_area">
-                    <h2>学術集会事務局</h2>
-                    <dl>
-                        <dt>医療法人研成会 諏訪湖畔病院</dt>
-                        <dd>
-                            〒104-0061<br>
-                            東京都中央区銀座8-17-5<br>
-                            THE HUB銀座OCT705<br>
-                            TEL：03-3541-0757<br>
-                            FAX：03-3541-0758<br>
-                            E-mail：info@onki.jp<br>
-                        </dd>
-                    </dl>
-                </div>
+
+                <?php if (is_active_sidebar('sidebar')) : ?>
+                    <ul class="menu">
+                        <?php dynamic_sidebar('sidebar'); ?>
+                    </ul>
+                <?php endif; ?>
+
             </aside>
 
 

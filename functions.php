@@ -1,16 +1,27 @@
 <?php
 
-//テーマstyle.cssの読み込み
-function twpp_enqueue_styles()
+// メニュー追加
+function register_my_menus()
 {
-    wp_enqueue_style('style', get_stylesheet_uri());
+    register_nav_menus(array(
+        'navigation-menu' => 'Navigation Menu',
+    ));
 }
-add_action('wp_enqueue_scripts', 'twpp_enqueue_styles');
+add_action('after_setup_theme', 'register_my_menus');
 
-// titleタグ出力
-add_theme_support('title-tag');
+
+// ウィジェット追加
+function register_my_widgets()
+{
+    register_sidebar(array(
+        'name' => 'サイドバー',
+        'id' => 'sidebar'
+    ));
+}
+add_action('widgets_init', 'register_my_widgets');
+
 
 /**
  * WP-SCSS：ページをロードするたびにscssファイルを強制的にコンパイル.
  */
-define( 'WP_SCSS_ALWAYS_RECOMPILE', true );
+// define('WP_SCSS_ALWAYS_RECOMPILE', true);

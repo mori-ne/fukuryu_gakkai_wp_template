@@ -1,5 +1,11 @@
 @charset "UTF-8";
 
+/*
+Theme Name: (有)福琉印刷学会テーマ 2022
+Author: morine
+Version: alpha
+*/
+
 /* ------------------------------------------------------------------ */
 /* --------------------    調整項目    ------------------------------- */
 /* ------------------------------------------------------------------ */
@@ -137,7 +143,7 @@ h6 {
     width: $content-width;
     margin-left: auto;
     margin-right: auto;
-    margin-top: calc($header-height + $space);
+    margin-top: 120px !important;
     background: $main-bg;
     padding: $space 0 $space $space;
 }
@@ -278,6 +284,12 @@ h6 {
 }
 
 .jimu_area {
+    font-size: 0.9em;
+    line-height: 1.4;
+    margin: 0 0 $space 0;
+}
+
+.widget_block {
     font-size: 0.9em;
     line-height: 1.4;
     margin: 0 0 $space 0;
