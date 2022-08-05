@@ -10,12 +10,14 @@ Version: alpha
 * {
   transition: all 0.2s;
 }
+
 body {
-  font-family: 'メイリオ', 'Meiryo', sans-serif;
+  font-family: "メイリオ", "Meiryo", sans-serif;
   font-size: 15px;
   line-height: 1.6;
   background: #e6e6e6;
 }
+
 a {
   color: #000;
   text-decoration: none;
@@ -27,7 +29,12 @@ a:hover {
 a:visited {
   color: #500;
 }
-h2, h3, h4, h5, h6 {
+
+h2,
+h3,
+h4,
+h5,
+h6 {
   position: relative;
   display: flex;
   align-items: center;
@@ -36,13 +43,15 @@ h2, h3, h4, h5, h6 {
   font-weight: bold;
   background: #aaa;
   color: #fff;
-  text-indent: calc($space / 2);
+  text-indent: 12.5px;
   padding: 2px;
-  margin-bottom: calc($space / 2);
+  margin-bottom: 12.5px;
 }
+
 #wrapper {
   width: 100%;
 }
+
 #header {
   position: fixed;
   z-index: 9999;
@@ -57,6 +66,7 @@ h2, h3, h4, h5, h6 {
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
   overflow: hidden;
 }
+
 #main {
   display: flex;
   flex-direction: row;
@@ -64,27 +74,28 @@ h2, h3, h4, h5, h6 {
   margin-left: auto;
   margin-right: auto;
   margin-top: 120px !important;
-  background: white;
+  background: rgb(255, 255, 255);
   padding: 25px 0 25px 25px;
 }
+
 #sidebar {
   margin: 0 25px 0 0;
 }
+
 #contents {
   width: 100%;
-}
-#contents article {
-  margin: 0 25px 0 0;
 }
 #footer {
   width: 100%;
 }
+
 .logo {
   width: 100px;
   height: 100px;
   background-color: #fff;
   margin-right: 25px;
 }
+
 .title {
   display: flex;
   flex-direction: column;
@@ -103,6 +114,7 @@ h2, h3, h4, h5, h6 {
   color: #000 !important;
   line-height: 1.1;
 }
+
 .global-nav {
   margin: 0 0 25px 0;
 }
@@ -125,19 +137,22 @@ h2, h3, h4, h5, h6 {
   color: #fff;
   background: #666;
 }
+
 .mv {
   width: 100%;
   height: 600px;
   background: #ccc;
-  margin-top: calc($space * -1);
+  margin-top: -25px;
   margin-bottom: 25px;
   padding: 25px;
 }
+
 .info {
   border: 1px solid #f00;
   padding: 25px;
   margin: 0 0 25px 0;
 }
+
 .news {
   width: 100%;
   height: 300px;
@@ -165,6 +180,7 @@ h2, h3, h4, h5, h6 {
   font-size: 0.9em;
   line-height: 1.5;
 }
+
 .reload a {
   position: absolute;
   top: 50%;
@@ -173,16 +189,19 @@ h2, h3, h4, h5, h6 {
   font-size: 0.5em;
   color: #fff;
 }
+
 .jimu_area {
   font-size: 0.9em;
   line-height: 1.4;
   margin: 0 0 25px 0;
 }
+
 .widget_block {
   font-size: 0.9em;
   line-height: 1.4;
   margin: 0 0 25px 0;
 }
+
 .copyright {
   width: 1000px;
   margin: 0 auto;
@@ -192,5 +211,5 @@ h2, h3, h4, h5, h6 {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: white;
-}
+  background: rgb(255, 255, 255);
+}/*# sourceMappingURL=style.css.map */

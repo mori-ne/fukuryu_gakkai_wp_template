@@ -9,8 +9,12 @@
     <link rel="stylesheet" href="<?php echo get_stylesheet_uri(); ?>">
     <title><?php bloginfo('name'); ?></title>
     <script type="text/javascript" src="js/jquery-3.6.0.min.js"></script>
+    <!-- /* テーマカスタマイザー用スタイル */ -->
     <style>
-        /* テーマカスタマイザー用スタイル */
+        body {
+            background: <?php echo get_theme_mod('gemstone_bg_color'); ?>;
+        }
+
         a {
             color: <?php echo get_theme_mod('gemstone_link_color'); ?>;
         }
@@ -37,10 +41,16 @@
         #main {
             padding-left: <?php echo get_option('LRSpace') ?>px !important;
             padding-right: <?php echo get_option('LRSpace') ?>px !important;
+            padding-top: <?php echo get_option('TBSpace') ?>px !important;
+            padding-bottom: <?php echo get_option('TBSpace') ?>px !important;
         }
 
         #sidebar {
             margin-right: <?php echo get_option('LRSpace') ?>px !important;
+        }
+
+        #contents {
+            padding: <?php echo get_option('ContentsSpace') ?>px !important;
         }
     </style>
 </head>
@@ -79,7 +89,7 @@
 
             <main id="contents">
 
-                <div class="mv">
+                <!-- <div class="mv">
                     <dl>
                         <dt>会期</dt>
                         <dd>2022年6月11日(土)・12日(日)</dd>
@@ -88,7 +98,7 @@
                         <dt>会期</dt>
                         <dd>2022年6月11日(土)・12日(日)</dd>
                     </dl>
-                </div>
+                </div> -->
 
                 <article>
                     <div class="info">
