@@ -9,6 +9,40 @@
     <link rel="stylesheet" href="<?php echo get_stylesheet_uri(); ?>">
     <title><?php bloginfo('name'); ?></title>
     <script type="text/javascript" src="js/jquery-3.6.0.min.js"></script>
+    <style>
+        /* テーマカスタマイザー用スタイル */
+        a {
+            color: <?php echo get_theme_mod('gemstone_link_color'); ?>;
+        }
+
+        a:hover {
+            color: <?php echo get_theme_mod('gemstone_hover_color'); ?>;
+        }
+
+        li.page_item a {
+            color: <?php echo get_theme_mod('gemstone_navlink_color');  ?> !important;
+            background: <?php echo get_theme_mod('gemstone_navbg_color'); ?> !important;
+            height: <?php echo get_option('navHeight') ?>px !important;
+        }
+
+        li.page_item a:hover {
+            color: <?php echo get_theme_mod('gemstone_navhover_color'); ?> !important;
+            background: <?php echo get_theme_mod('gemstone_navbghover_color'); ?> !important;
+        }
+
+        .global-nav ul li {
+            margin-bottom: <?php echo get_option('navMarginBottom') ?>px !important;
+        }
+
+        #main {
+            padding-left: <?php echo get_option('LRSpace') ?>px !important;
+            padding-right: <?php echo get_option('LRSpace') ?>px !important;
+        }
+
+        #sidebar {
+            margin-right: <?php echo get_option('LRSpace') ?>px !important;
+        }
+    </style>
 </head>
 
 <body>
@@ -134,7 +168,7 @@
         </div>
 
         <footer id="footer">
-            <p class="copyright">© 第87回日本温泉気候物理医学会総会・学術集会 | </p>
+            <p class="copyright">© <?php bloginfo('name'); ?></p>
         </footer>
 
         <div id="pagetop">
