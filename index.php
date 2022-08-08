@@ -9,60 +9,15 @@
     <link rel="stylesheet" href="<?php echo get_stylesheet_uri(); ?>">
     <title><?php bloginfo('name'); ?></title>
     <script type="text/javascript" src="js/jquery-3.6.0.min.js"></script>
-    <!-- /* テーマカスタマイザー用スタイル */ -->
-    <style>
-        body {
-            background: <?php echo get_theme_mod('gemstone_bg_color'); ?>;
-        }
-
-        a {
-            color: <?php echo get_theme_mod('gemstone_link_color'); ?>;
-        }
-
-        a:hover {
-            color: <?php echo get_theme_mod('gemstone_hover_color'); ?>;
-        }
-
-        li.page_item a {
-            color: <?php echo get_theme_mod('gemstone_navlink_color');  ?> !important;
-            background: <?php echo get_theme_mod('gemstone_navbg_color'); ?> !important;
-            height: <?php echo get_option('navHeight') ?>px !important;
-            width: <?php echo get_option('navWidth') ?>px !important;
-        }
-
-        li.page_item a:hover {
-            color: <?php echo get_theme_mod('gemstone_navhover_color'); ?> !important;
-            background: <?php echo get_theme_mod('gemstone_navbghover_color'); ?> !important;
-        }
-
-        .global-nav ul li {
-            margin-bottom: <?php echo get_option('navMarginBottom'); ?>px !important;
-        }
-
-        #main {
-            width: <?php echo get_option('pageWidth'); ?> !important;
-            padding-left: <?php echo get_option('LRSpace'); ?>px !important;
-            padding-right: <?php echo get_option('LRSpace'); ?>px !important;
-            padding-top: <?php echo get_option('TBSpace'); ?>px !important;
-            padding-bottom: <?php echo get_option('TBSpace'); ?>px !important;
-        }
-
-        .copyright {
-            width: <?php echo get_option('pageWidth'); ?> !important;
-        }
-
-        #sidebar {
-            margin-right: <?php echo get_option('LRSpace'); ?>px !important;
-        }
-
-        #contents {
-            padding: <?php echo get_option('ContentsSpace'); ?>px !important;
-        }
-    </style>
+    <!-- テーマカスタマイザー用スタイル記述 -->
+    <?php include("theme_customizer_styles.php"); ?>
 </head>
 
 <body>
     <div id="wrapper">
+
+
+
         <header id="header">
             <div class="logo">
                 <img src="#" alt="#">
@@ -74,8 +29,17 @@
                 <h1><a class="title-ja" href="/"><?php bloginfo('name'); ?></a></h1>
             </div>
         </header>
+
+
+
         <div id="main">
+
+
+
             <aside id="sidebar">
+
+
+
                 <nav class="global-nav">
                     <?php
                     wp_nav_menu(array(
@@ -106,6 +70,8 @@
                     </dl>
                 </div> -->
 
+
+
                 <article>
                     <div class="info">
                         <p>
@@ -114,6 +80,8 @@
                         </p>
                     </div>
                 </article>
+
+
 
                 <article>
                     <h2>
@@ -183,12 +151,16 @@
             </main>
         </div>
 
+
+
         <footer id="footer">
             <?php if (is_active_sidebar('footer')) : ?>
                 <ul class="menu">
                     <?php dynamic_sidebar('footer'); ?>
                 </ul>
             <?php endif; ?>
+
+
 
             <p class="copyright">© <?php bloginfo('name'); ?></p>
         </footer>

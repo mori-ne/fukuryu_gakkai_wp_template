@@ -214,8 +214,8 @@ function mytheme_customizer($wp_customize)
 		'controlID',
 		array(
 			'settings' => 'pageWidth',
-			'label' => 'ページ幅（px、%も記入）',
-			'description' => 'デフォルト値:1000',
+			'label' => 'ページ幅（単位も記述px,%等）',
+			'description' => 'デフォルト値:1000px',
 			'section' => 'gakkaiControl',
 			'type' => 'text',
 		)
@@ -282,6 +282,27 @@ function mytheme_customizer($wp_customize)
 	);
 
 
+	// ナビゲーションバーの下線
+	$wp_customize->add_setting(
+		'navBorder',
+		array(
+			'default' => '1px solid #aaa',
+			'transport' => 'refresh',
+			'type' => 'option',
+		)
+	);
+	$wp_customize->add_control(
+		'controlID5',
+		array(
+			'settings' => 'navBorder',
+			'label' => 'ナビゲーションバーの隙間（noneで無し）',
+			'description' => 'デフォルト値:1px solid #aaa',
+			'section' => 'gakkaiControl',
+			'type' => 'text',
+		)
+	);
+
+
 	// ページ内左右の余白（padding）
 	$wp_customize->add_setting(
 		'LRSpace',
@@ -292,7 +313,7 @@ function mytheme_customizer($wp_customize)
 		)
 	);
 	$wp_customize->add_control(
-		'controlID5',
+		'controlID6',
 		array(
 			'settings' => 'LRSpace',
 			'label' => 'ページ内左右の余白（padding）',
@@ -312,7 +333,7 @@ function mytheme_customizer($wp_customize)
 		)
 	);
 	$wp_customize->add_control(
-		'controlID6',
+		'controlID7',
 		array(
 			'settings' => 'TBSpace',
 			'label' => 'ページ内上下の余白（padding）',
@@ -334,7 +355,7 @@ function mytheme_customizer($wp_customize)
 	);
 
 	$wp_customize->add_control(
-		'controlID7',
+		'controlID8',
 		array(
 			'settings' => 'ContentsSpace',
 			'label' => 'コンテンツ内上下左右の余白（padding）',
