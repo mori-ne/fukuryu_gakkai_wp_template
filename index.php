@@ -27,6 +27,7 @@
             color: <?php echo get_theme_mod('gemstone_navlink_color');  ?> !important;
             background: <?php echo get_theme_mod('gemstone_navbg_color'); ?> !important;
             height: <?php echo get_option('navHeight') ?>px !important;
+            width: <?php echo get_option('navWidth') ?>px !important;
         }
 
         li.page_item a:hover {
@@ -35,22 +36,27 @@
         }
 
         .global-nav ul li {
-            margin-bottom: <?php echo get_option('navMarginBottom') ?>px !important;
+            margin-bottom: <?php echo get_option('navMarginBottom'); ?>px !important;
         }
 
         #main {
-            padding-left: <?php echo get_option('LRSpace') ?>px !important;
-            padding-right: <?php echo get_option('LRSpace') ?>px !important;
-            padding-top: <?php echo get_option('TBSpace') ?>px !important;
-            padding-bottom: <?php echo get_option('TBSpace') ?>px !important;
+            width: <?php echo get_option('pageWidth'); ?> !important;
+            padding-left: <?php echo get_option('LRSpace'); ?>px !important;
+            padding-right: <?php echo get_option('LRSpace'); ?>px !important;
+            padding-top: <?php echo get_option('TBSpace'); ?>px !important;
+            padding-bottom: <?php echo get_option('TBSpace'); ?>px !important;
+        }
+
+        .copyright {
+            width: <?php echo get_option('pageWidth'); ?> !important;
         }
 
         #sidebar {
-            margin-right: <?php echo get_option('LRSpace') ?>px !important;
+            margin-right: <?php echo get_option('LRSpace'); ?>px !important;
         }
 
         #contents {
-            padding: <?php echo get_option('ContentsSpace') ?>px !important;
+            padding: <?php echo get_option('ContentsSpace'); ?>px !important;
         }
     </style>
 </head>
@@ -178,6 +184,12 @@
         </div>
 
         <footer id="footer">
+            <?php if (is_active_sidebar('footer')) : ?>
+                <ul class="menu">
+                    <?php dynamic_sidebar('footer'); ?>
+                </ul>
+            <?php endif; ?>
+
             <p class="copyright">© <?php bloginfo('name'); ?></p>
         </footer>
 
