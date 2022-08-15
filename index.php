@@ -19,9 +19,13 @@
 
     <div id="wrapper">
         <header id="header">
-            <div class="logo">
-                <img src="#" alt="未実装">
-            </div>
+            <?php if (get_image_url4()) : ?>
+                <div class="logo">
+                    <img src="<?php echo get_image_url4(); ?>" alt="<?php bloginfo('name'); ?>">
+                </div>
+            <?php else : ?>
+            <?php endif; ?>
+
             <div class="title">
                 <div class="title-en">
                     <?php bloginfo('description'); ?>
@@ -72,14 +76,14 @@
 
 
 
-                <article>
+                <!-- <article>
                     <div class="info">
                         <p>
                             第87回日本温泉気候物理医学会総会・学術集会は、盛会のうちに終了いたしました。<br>
                             ご参加いただきました皆様、ご支援・ご協力を賜りました関係各所の皆様に心より御礼申し上げます。
                         </p>
                     </div>
-                </article>
+                </article> -->
 
 
 

@@ -364,6 +364,28 @@ function mytheme_customizer($wp_customize)
 			'type' => 'text',
 		)
 	);
+
+
+	// コンテンツ内上下左右の余白（padding）
+	$wp_customize->add_setting(
+		'mainimageHeight',
+		array(
+			'default' => '600',
+			'transport' => 'refresh',
+			'type' => 'option',
+		)
+	);
+
+	$wp_customize->add_control(
+		'controlID8',
+		array(
+			'settings' => 'mainimageHeight',
+			'label' => 'メインイメージの高さ',
+			'description' => 'デフォルト値:600px',
+			'section' => 'gakkaiControl',
+			'type' => 'text',
+		)
+	);
 }
 add_action('customize_register', 'mytheme_customizer');
 
@@ -439,7 +461,7 @@ function set_image_cutomizer($wp_customize)
 				'label' => 'ロゴ画像',
 				'section' => 'set_img_section',
 				'settings' => 'set_img_url4',
-				'description' => 'ヘッダー横ロゴマーク',
+				'description' => '100px以内',
 			)
 		)
 	);
@@ -463,6 +485,11 @@ function get_image_url2()
 function get_image_url3()
 {
 	return esc_url(get_theme_mod('set_img_url3'));
+}
+//セットした画像のURLを取得
+function get_image_url4()
+{
+	return esc_url(get_theme_mod('set_img_url4'));
 }
 
 

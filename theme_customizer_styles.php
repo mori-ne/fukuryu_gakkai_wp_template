@@ -12,7 +12,7 @@
         display: block;
         background-color: transparent;
         background: url(<?php echo get_image_url2(); ?>) no-repeat;
-        background-size: cover;
+        background-size: contain;
     }
 
     <?php else : ?>.mv {
@@ -84,6 +84,10 @@
 
     #contents {
         padding: <?php echo get_option('ContentsSpace'); ?>px !important;
+    }
+
+    .mv {
+        height: <?php echo get_option('mainimageHeight'); ?>px !important;
     }
 </style>
 <!-- /* テーマカスタマイザー用スタイル end */ -->
