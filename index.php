@@ -14,13 +14,13 @@
 </head>
 
 <body>
+
+
+
     <div id="wrapper">
-
-
-
         <header id="header">
             <div class="logo">
-                <img src="#" alt="#">
+                <img src="#" alt="未実装">
             </div>
             <div class="title">
                 <div class="title-en">
@@ -59,7 +59,7 @@
 
             <main id="contents">
 
-                <!-- <div class="mv">
+                <div class="mv">
                     <dl>
                         <dt>会期</dt>
                         <dd>2022年6月11日(土)・12日(日)</dd>
@@ -68,7 +68,7 @@
                         <dt>会期</dt>
                         <dd>2022年6月11日(土)・12日(日)</dd>
                     </dl>
-                </div> -->
+                </div>
 
 
 

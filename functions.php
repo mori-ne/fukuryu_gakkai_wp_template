@@ -195,9 +195,9 @@ function mytheme_customizer($wp_customize)
 	$wp_customize->add_section(
 		'gakkaiControl',
 		array(
-			'title' => '学会テーマカスタマイズ',
+			'title' => '学会テーマカスタマイズ：レイアウト',
 			'description' => '項目全体の注意書き、不要ならこの行ごと削除',
-			'priority' => 30,
+			'priority' => 21,
 		)
 	);
 
@@ -366,6 +366,104 @@ function mytheme_customizer($wp_customize)
 	);
 }
 add_action('customize_register', 'mytheme_customizer');
+
+
+/////////////////////////////////////////////////////////////////////////////
+///////////////////////////// 画像アップロード/////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////
+
+function set_image_cutomizer($wp_customize)
+{
+
+	//セクション
+	$wp_customize->add_section(
+		'set_img_section',
+		array(
+			'title' => '学会テーマカスタイマイズ：画像',
+			'priority' => 22,
+			'discription' => 'アップロードした画像をセットします。'
+		)
+	);
+
+
+	//テーマ設定のグループ
+	$wp_customize->add_setting('set_img_url');
+	//テーマカスタマイザー画面に表示されるフォームの入力要素
+	$wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'set_img_url', array(
+		'label' => '背景画像',
+		'section' => 'set_img_section',
+		'settings' => 'set_img_url',
+		'description' => '背景画像（1920px以上が望ましい）',
+	)));
+
+	//テーマ設定のグループ
+	$wp_customize->add_setting('set_img_url2');
+	//テーマカスタマイザー画面に表示されるフォームの入力要素
+	$wp_customize->add_control(
+		new WP_Customize_Image_Control(
+			$wp_customize,
+			'set_img_url2',
+			array(
+				'label' => 'メイン画像',
+				'section' => 'set_img_section',
+				'settings' => 'set_img_url2',
+				'description' => 'コンテンツ内メイン画像（横幅可変）',
+			)
+		)
+	);
+
+	//テーマ設定のグループ
+	$wp_customize->add_setting('set_img_url3');
+	//テーマカスタマイザー画面に表示されるフォームの入力要素
+	$wp_customize->add_control(
+		new WP_Customize_Image_Control(
+			$wp_customize,
+			'set_img_url3',
+			array(
+				'label' => 'メニュー画像',
+				'section' => 'set_img_section',
+				'settings' => 'set_img_url3',
+				'description' => 'ナビゲーションメニュー内画像（レイアウトで設定した値）',
+			)
+		)
+	);
+
+	//テーマ設定のグループ
+	$wp_customize->add_setting('set_img_url4');
+	//テーマカスタマイザー画面に表示されるフォームの入力要素
+	$wp_customize->add_control(
+		new WP_Customize_Image_Control(
+			$wp_customize,
+			'set_img_url4',
+			array(
+				'label' => 'ロゴ画像',
+				'section' => 'set_img_section',
+				'settings' => 'set_img_url4',
+				'description' => 'ヘッダー横ロゴマーク',
+			)
+		)
+	);
+}
+
+
+//カスタマイザーに登録
+add_action('customize_register', 'set_image_cutomizer');
+
+//セットした画像のURLを取得
+function get_image_url()
+{
+	return esc_url(get_theme_mod('set_img_url'));
+}
+//セットした画像のURLを取得
+function get_image_url2()
+{
+	return esc_url(get_theme_mod('set_img_url2'));
+}
+//セットした画像のURLを取得
+function get_image_url3()
+{
+	return esc_url(get_theme_mod('set_img_url3'));
+}
 
 
 /**

@@ -1,12 +1,47 @@
 <!-- /* テーマカスタマイザー用スタイル start*/ -->
 <style>
-    body {
+    <?php if (get_image_url()) : ?>body {
+        background: url(<?php echo get_image_url(); ?>) fixed no-repeat center;
+    }
+
+    <?php else : ?>body {
         background: <?php echo get_theme_mod('gemstone_bg_color'); ?>;
     }
 
-    a {
+    <?php endif; ?><?php if (get_image_url2()) : ?>.mv {
+        display: block;
+        background-color: transparent;
+        background: url(<?php echo get_image_url2(); ?>) no-repeat;
+        background-size: cover;
+    }
+
+    <?php else : ?>.mv {
+        display: none;
+    }
+
+    <?php endif; ?><?php if (get_image_url3()) : ?>li.page_item {
+        background-color: transparent !important;
+        background: url(<?php echo get_image_url3(); ?>) no-repeat !important;
+        background-size: cover !important;
+    }
+
+    li.page_item a {
+        background-color: transparent !important;
+    }
+
+    <?php else : ?>li.page_item {
+        background-image: none !important;
+    }
+
+    li.page_item a {
+        background: <?php echo get_theme_mod('gemstone_navbg_color'); ?> !important;
+    }
+
+    <?php endif; ?>a {
         color: <?php echo get_theme_mod('gemstone_link_color'); ?>;
     }
+
+
 
     a:hover {
         color: <?php echo get_theme_mod('gemstone_hover_color'); ?>;
@@ -14,7 +49,6 @@
 
     li.page_item a {
         color: <?php echo get_theme_mod('gemstone_navlink_color');  ?> !important;
-        background: <?php echo get_theme_mod('gemstone_navbg_color'); ?> !important;
         height: <?php echo get_option('navHeight') ?>px !important;
         width: <?php echo get_option('navWidth') ?>px !important;
     }
