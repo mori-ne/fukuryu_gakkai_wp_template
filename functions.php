@@ -191,13 +191,56 @@ add_action('customize_register', 'gemstone_customize_register');
 
 function mytheme_customizer($wp_customize)
 {
-	// 学会テーマカスタマイズパネル
+	// 学会テーマカスタマイズパネル（セクション）
 	$wp_customize->add_section(
 		'gakkaiControl',
 		array(
 			'title' => '学会テーマカスタマイズ：レイアウト',
 			'description' => '項目全体の注意書き、不要ならこの行ごと削除',
 			'priority' => 21,
+		)
+	);
+
+	// ヘッダーの固定・追従
+	$wp_customize->add_setting(
+		'fixHeader',
+		array(
+			'type' => 'option'
+		)
+	);
+	$wp_customize->add_control(
+		'controlID',
+		array(
+			'settings' => 'fixHeader',
+			'label' => 'ヘッダー固定か追従',
+			'description' => 'デフォルト値：fixed',
+			'section' => 'gakkaiControl',
+			'type' => 'radio',
+			'choices' => array(
+				'fixed' => '固定（fixed）',
+				'relative' => '追従（relative）'
+			),
+		)
+	);
+
+	// ヘッダーの高さ
+	$wp_customize->add_setting(
+		'headerHeight',
+		array(
+			'default' => '100',
+			'transport' => 'refresh',
+			'type' => 'option',
+		)
+	);
+
+	$wp_customize->add_control(
+		'controlID2',
+		array(
+			'settings' => 'headerHeight',
+			'label' => 'ヘッダーの高さ',
+			'description' => 'デフォルト値:100px',
+			'section' => 'gakkaiControl',
+			'type' => 'text',
 		)
 	);
 
@@ -211,7 +254,7 @@ function mytheme_customizer($wp_customize)
 		)
 	);
 	$wp_customize->add_control(
-		'controlID',
+		'controlID3',
 		array(
 			'settings' => 'pageWidth',
 			'label' => 'ページ幅（単位も記述px,%等）',
@@ -231,7 +274,7 @@ function mytheme_customizer($wp_customize)
 		)
 	);
 	$wp_customize->add_control(
-		'controlID2',
+		'controlID4',
 		array(
 			'settings' => 'navWidth',
 			'label' => 'ナビゲーションバーの幅',
@@ -251,7 +294,7 @@ function mytheme_customizer($wp_customize)
 		)
 	);
 	$wp_customize->add_control(
-		'controlID3',
+		'controlID5',
 		array(
 			'settings' => 'navHeight',
 			'label' => 'ナビゲーションバーの高さ',
@@ -271,7 +314,7 @@ function mytheme_customizer($wp_customize)
 		)
 	);
 	$wp_customize->add_control(
-		'controlID4',
+		'controlID6',
 		array(
 			'settings' => 'navMarginBottom',
 			'label' => 'ナビゲーションバーの隙間',
@@ -292,7 +335,7 @@ function mytheme_customizer($wp_customize)
 		)
 	);
 	$wp_customize->add_control(
-		'controlID5',
+		'controlID7',
 		array(
 			'settings' => 'navBorder',
 			'label' => 'ナビゲーションバーの隙間（noneで無し）',
@@ -313,7 +356,7 @@ function mytheme_customizer($wp_customize)
 		)
 	);
 	$wp_customize->add_control(
-		'controlID6',
+		'controlID8',
 		array(
 			'settings' => 'LRSpace',
 			'label' => 'ページ内左右の余白（padding）',
@@ -333,7 +376,7 @@ function mytheme_customizer($wp_customize)
 		)
 	);
 	$wp_customize->add_control(
-		'controlID7',
+		'controlID9',
 		array(
 			'settings' => 'TBSpace',
 			'label' => 'ページ内上下の余白（padding）',
@@ -355,7 +398,7 @@ function mytheme_customizer($wp_customize)
 	);
 
 	$wp_customize->add_control(
-		'controlID8',
+		'controlID10',
 		array(
 			'settings' => 'ContentsSpace',
 			'label' => 'コンテンツ内上下左右の余白（padding）',
@@ -377,7 +420,7 @@ function mytheme_customizer($wp_customize)
 	);
 
 	$wp_customize->add_control(
-		'controlID8',
+		'controlID11',
 		array(
 			'settings' => 'mainimageHeight',
 			'label' => 'メインイメージの高さ',

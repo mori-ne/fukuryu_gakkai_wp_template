@@ -18,10 +18,10 @@
 
 
     <div id="wrapper">
+
         <header id="header">
             <?php if (get_image_url4()) : ?>
                 <div class="logo">
-                    <img src="<?php echo get_image_url4(); ?>" alt="<?php bloginfo('name'); ?>">
                 </div>
             <?php else : ?>
             <?php endif; ?>

@@ -1,5 +1,21 @@
 <!-- /* テーマカスタマイザー用スタイル start*/ -->
 <style>
+    #header {
+        position: <?php echo get_option('fixHeader'); ?>;
+        height: <?php echo get_option('headerHeight'); ?>px !important;
+    }
+
+    .logo {
+        background-image: url('<?php echo get_image_url4(); ?>');
+        background-size: cover;
+    }
+
+    #main {
+        <?php if (get_option('fixHeader', 'fixed') == 'fixed') : ?>margin-top: 120px !important;
+        <?php else : ?>margin-top: 0px !important;
+        <?php endif; ?>
+    }
+
     <?php if (get_image_url()) : ?>body {
         background: url(<?php echo get_image_url(); ?>) fixed no-repeat center;
     }
