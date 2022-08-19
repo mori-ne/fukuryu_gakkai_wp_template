@@ -433,169 +433,12 @@ function mytheme_customizer($wp_customize)
 
 add_action('customize_register', 'mytheme_customizer');
 
-////////////////////////////////////////////////////// 
-// 画像アップロード
-////////////////////////////////////////////////////// 
-
-//画像をアップロードする関数
-function set_image_cutomizer($wp_customize)
-{
-
-	///////////////////////////////////トップ画像
-	$wp_customize->add_section(
-		'set_img_section0',
-		array(
-			'title' => 'トップ画像',
-			'priority' => 24,
-			'discription' => 'アップロードした画像をセットします。'
-		)
-	);
-	$wp_customize->add_setting('set_img_url0');
-	$wp_customize->add_control(
-		new WP_Customize_Image_Control(
-			$wp_customize,
-			'set_img_url0',
-			array(
-				'label' => 'トップ画像',
-				'section' => 'set_img_section0',
-				'settings' => 'set_img_url0',
-				'description' => 'トップ画像',
-			)
-		)
-	);
-
-
-	///////////////////////////////////イメージセクション1
-	// $wp_customize->add_section(
-	// 	'set_img_section',
-	// 	array(
-	// 		'title' => 'ボタン画像',
-	// 		'priority' => 25,
-	// 		'discription' => 'アップロードした画像をセットします。'
-	// 	)
-	// );
-
-	// $wp_customize->add_setting('set_img_url');
-
-	// $wp_customize->add_control(
-	// 	new WP_Customize_Image_Control(
-	// 		$wp_customize,
-	// 		'set_img_url',
-	// 		array(
-	// 			'label' => 'ボタン画像', //設定ラベル
-	// 			'section' => 'set_img_section', //セクションID
-	// 			'settings' => 'set_img_url', //セッティングID
-	// 			'description' => 'アイコン画像（19ピクセル以内）',
-	// 		)
-	// 	)
-	// );
-
-	// //テーマのセクション
-	// $wp_customize->add_section(
-	// 	'set_img_section2',
-	// 	array(
-	// 		'title' => 'ボタン画像リンク',
-	// 		'priority' => 26,
-	// 		'discription' => 'アップロードした画像をセットします。'
-	// 	)
-	// );
-
-	// $wp_customize->add_setting('set_img_url2');
-
-	// //テーマカスタマイザー画面に表示されるフォームの入力要素
-	// $wp_customize->add_control(
-	// 	new WP_Customize_Image_Control(
-	// 		$wp_customize,
-	// 		'set_img_url2',
-	// 		array(
-	// 			'label' => 'ボタン画像リンク',
-	// 			'section' => 'set_img_section2',
-	// 			'settings' => 'set_img_url2',
-	// 			'description' => 'アイコン画像（19ピクセル以内）',
-	// 		)
-	// 	)
-	// );
-
-	// //テーマのセクション
-	// $wp_customize->add_section('set_img_section3', array(
-	// 	'title' => 'H3背景画像',  //セクション名
-	// 	'priority' => 27,     //カスタマイザー項目の表示順
-	// 	'discription' => 'アップロードした画像をセットします。' //セクションの説明
-	// ));
-
-	// //テーマ設定のグループ
-	// $wp_customize->add_setting('set_img_url3');
-
-	// //テーマカスタマイザー画面に表示されるフォームの入力要素
-	// $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'set_img_url3', array(
-	// 	'label' => 'H3背景画像', //設定ラベル
-	// 	'section' => 'set_img_section3', //セクションID
-	// 	'settings' => 'set_img_url3', //セッティングID
-	// 	'description' => 'H3背景画像（右寄せ）',
-	// )));
-
-	// //テーマのセクション
-	// $wp_customize->add_section('set_img_sectionBG', array(
-	// 	'title' => '全体背景画像（単色は「色」で設定）',  //セクション名
-	// 	'priority' => 30,     //カスタマイザー項目の表示順
-	// 	'discription' => 'アップロードした画像をセットします。' //セクションの説明
-	// ));
-
-	// //テーマ設定のグループ
-	// $wp_customize->add_setting('set_img_urlBG');
-
-	// //テーマカスタマイザー画面に表示されるフォームの入力要素
-	// $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'set_img_urlBG', array(
-	// 	'label' => '全体背景画像', //設定ラベル
-	// 	'section' => 'set_img_sectionBG', //セクションID
-	// 	'settings' => 'set_img_urlBG', //セッティングID
-	// 	'description' => '全体背景画像（一枚絵なら幅1920ピクセル）',
-	// )));
-}
-//カスタマイザーに登録
-add_action('customize_register', 'set_image_cutomizer');
-
-//セットした画像のURLを取得
-function get_image_url0()
-{
-	return esc_url(
-		get_theme_mod('set_img_url0')
-	);
-}
-
-
-
-
-
-
-//セットした画像のURLを取得
-function get_image_url()
-{
-	return esc_url(get_theme_mod('set_img_url'));
-}
-//セットした画像のURLを取得
-function get_image_url2()
-{
-	return esc_url(get_theme_mod('set_img_url2'));
-}
-//セットした画像のURLを取得
-function get_image_url3()
-{
-	return esc_url(get_theme_mod('set_img_url3'));
-}
-
-//セットした画像のURLを取得
-function get_image_urlBG()
-{
-	return esc_url(get_theme_mod('set_img_urlBG'));
-}
-
-$wp_customize->add_setting('set_img_url');
 
 /////////////////////////////////////////////////////////////////////////////
 ///////////////////////////// 画像アップロード/////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////
 
+//画像をアップロードする関数
 function set_image_cutomizer($wp_customize)
 {
 
@@ -669,9 +512,9 @@ function set_image_cutomizer($wp_customize)
 	);
 }
 
-
 //カスタマイザーに登録
 add_action('customize_register', 'set_image_cutomizer');
+
 
 //セットした画像のURLを取得
 function get_image_url()
