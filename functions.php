@@ -6,20 +6,21 @@
 
 use function PHPSTORM_META\map;
 
-function register_my_menus()
+function register_menuber()
 {
 	register_nav_menus(array(
 		'navigation-menu' => 'Navigation Menu',
 	));
 }
-add_action('after_setup_theme', 'register_my_menus');
+add_action('after_setup_theme', 'register_menuber');
+
 
 
 //////////////////////////////////////////////////////
 // ウィジェット追加
 //////////////////////////////////////////////////////
 
-function register_my_widgets()
+function register_widgets()
 {
 	register_sidebar(array(
 		'name' => 'サイドバー',
@@ -34,162 +35,15 @@ function register_my_widgets()
 		'id' => 'footer'
 	));
 }
-add_action('widgets_init', 'register_my_widgets');
-
-
-////////////////////////////////////////////////////// 
-// テーマカスタマイザーに項目を追加
-////////////////////////////////////////////////////// 
-
-function gemstone_customize_register($wp_customize)
-{
-
-	// 背景色
-	$wp_customize->add_setting(
-		'gemstone_bg_color',
-		array(
-			'default' => '#e6e6e6',
-			'sanitize_callback' => 'sanitize_text_field',
-		)
-	);
-	$wp_customize->add_control(
-		new WP_Customize_Color_Control(
-			$wp_customize,
-			'gemstone_bg_color',
-			array(
-				'label' => __('背景色', 'gemstone'),
-				'section' => 'colors',
-				'settings' => 'gemstone_bg_color',
-			)
-		)
-	);
-
-	// リンク文字カラー:static
-	$wp_customize->add_setting(
-		'gemstone_link_color',
-		array(
-			'default' => '#f00',
-			'sanitize_callback' => 'sanitize_text_field',
-		)
-	);
-	$wp_customize->add_control(
-		new WP_Customize_Color_Control(
-			$wp_customize,
-			'gemstone_link_color',
-			array(
-				'label' => __('リンク文字カラー:static', 'gemstone'),
-				'section' => 'colors',
-				'settings' => 'gemstone_link_color',
-			)
-		)
-	);
-
-	// リンク文字カラー:hover
-	$wp_customize->add_setting(
-		'gemstone_hover_color',
-		array(
-			'default' => '#000',
-			'sanitize_callback' => 'sanitize_text_field',
-		)
-	);
-	$wp_customize->add_control(
-		new WP_Customize_Color_Control(
-			$wp_customize,
-			'gemstone_hover_color',
-			array(
-				'label' => __('リンク文字カラー:hover', 'gemstone'),
-				'section' => 'colors',
-				'settings' => 'gemstone_hover_color',
-			)
-		)
-	);
-
-	// ナビゲーション文字カラー:static
-	$wp_customize->add_setting(
-		'gemstone_navlink_color',
-		array(
-			'default' => '#000',
-			'sanitize_callback' => 'sanitize_text_field',
-		)
-	);
-	$wp_customize->add_control(
-		new WP_Customize_Color_Control(
-			$wp_customize,
-			'gemstone_navlink_color',
-			array(
-				'label' => __('ナビゲーション文字カラー:static', 'gemstone'),
-				'section' => 'colors',
-				'settings' => 'gemstone_navlink_color',
-			)
-		)
-	);
-
-	// ナビゲーション文字カラー:hover
-	$wp_customize->add_setting(
-		'gemstone_navhover_color',
-		array(
-			'default' => '#444',
-			'sanitize_callback' => 'sanitize_text_field',
-		)
-	);
-	$wp_customize->add_control(
-		new WP_Customize_Color_Control(
-			$wp_customize,
-			'gemstone_navhover_color',
-			array(
-				'label' => __('ナビゲーション文字カラー:hover', 'gemstone'),
-				'section' => 'colors',
-				'settings' => 'gemstone_navhover_color',
-			)
-		)
-	);
-
-	// ナビゲーション背景カラー:static
-	$wp_customize->add_setting(
-		'gemstone_navbg_color',
-		array(
-			'default' => '#fff',
-			'sanitize_callback' => 'sanitize_text_field',
-		)
-	);
-	$wp_customize->add_control(
-		new WP_Customize_Color_Control(
-			$wp_customize,
-			'gemstone_navbg_color',
-			array(
-				'label' => __('ナビゲーション背景カラー:static', 'gemstone'),
-				'section' => 'colors',
-				'settings' => 'gemstone_navbg_color',
-			)
-		)
-	);
-
-	// ナビゲーション背景カラー:hover
-	$wp_customize->add_setting(
-		'gemstone_navbghover_color',
-		array(
-			'default' => '#eee',
-			'sanitize_callback' => 'sanitize_text_field',
-		)
-	);
-	$wp_customize->add_control(
-		new WP_Customize_Color_Control(
-			$wp_customize,
-			'gemstone_navbghover_color',
-			array(
-				'label' => __('ナビゲーション背景カラー:hover', 'gemstone'),
-				'section' => 'colors',
-				'settings' => 'gemstone_navbghover_color',
-			)
-		)
-	);
-}
-
-add_action('customize_register', 'gemstone_customize_register');
+add_action('widgets_init', 'register_widgets');
 
 
 
-function mytheme_customizer($wp_customize)
+//////////////////////////////////////////////////////
+// 学会テーマカスタマイザー：レイアウト
+//////////////////////////////////////////////////////
+
+function set_layout_customizer($wp_customize)
 {
 	// 学会テーマカスタマイズパネル（セクション）
 	$wp_customize->add_section(
@@ -201,48 +55,7 @@ function mytheme_customizer($wp_customize)
 		)
 	);
 
-	// ヘッダーの固定・追従
-	$wp_customize->add_setting(
-		'fixHeader',
-		array(
-			'type' => 'option'
-		)
-	);
-	$wp_customize->add_control(
-		'controlID',
-		array(
-			'settings' => 'fixHeader',
-			'label' => 'ヘッダー固定か追従',
-			'description' => 'デフォルト値：fixed',
-			'section' => 'gakkaiControl',
-			'type' => 'radio',
-			'choices' => array(
-				'fixed' => '固定（fixed）',
-				'relative' => '追従（relative）'
-			),
-		)
-	);
 
-	// ヘッダーの高さ
-	$wp_customize->add_setting(
-		'headerHeight',
-		array(
-			'default' => '100',
-			'transport' => 'refresh',
-			'type' => 'option',
-		)
-	);
-
-	$wp_customize->add_control(
-		'controlID2',
-		array(
-			'settings' => 'headerHeight',
-			'label' => 'ヘッダーの高さ',
-			'description' => 'デフォルト値:100px',
-			'section' => 'gakkaiControl',
-			'type' => 'text',
-		)
-	);
 
 	// ページ幅
 	$wp_customize->add_setting(
@@ -431,14 +244,165 @@ function mytheme_customizer($wp_customize)
 	);
 }
 
-add_action('customize_register', 'mytheme_customizer');
+add_action('customize_register', 'set_layout_customizer');
+
+//////////////////////////////////////////////////////
+// 学会テーマカスタマイザー：ヘッダー
+//////////////////////////////////////////////////////
+
+function set_header_customizer($wp_customize)
+{
+	// 学会テーマカスタマイズパネル（セクション）
+	$wp_customize->add_section(
+		'gakkaiControl2',
+		array(
+			'title' => '学会テーマカスタマイズ：ヘッダー',
+			'description' => '項目全体の注意書き、不要ならこの行ごと削除',
+			'priority' => 22,
+		)
+	);
 
 
-/////////////////////////////////////////////////////////////////////////////
-///////////////////////////// 画像アップロード/////////////////////////////////
-/////////////////////////////////////////////////////////////////////////////
+	//ヘッダー画像
+	$wp_customize->add_setting('set_header_img');
+	//テーマカスタマイザー画面に表示されるフォームの入力要素
+	$wp_customize->add_control(
+		new WP_Customize_Image_Control(
+			$wp_customize,
+			'set_header_img',
+			array(
+				'label' => 'ヘッダー画像',
+				'section' => 'gakkaiControl2',
+				'settings' => 'set_header_img',
+				'description' => 'ヘッダー画像',
+			)
+		)
+	);
 
-//画像をアップロードする関数
+
+	// ヘッダー全幅・固定幅
+	$wp_customize->add_setting(
+		'widHeader',
+		array(
+			'type' => 'option'
+		)
+	);
+	$wp_customize->add_control(
+		'controlID',
+		array(
+			'settings' => 'widHeader',
+			'label' => 'ヘッダー全幅か固定幅',
+			'description' => 'デフォルト値：全幅',
+			'section' => 'gakkaiControl2',
+			'type' => 'radio',
+			'choices' => array(
+				'fullwidth' => '全幅',
+				'fixwidth' => '固定幅'
+			),
+		)
+	);
+
+	// ヘッダーの幅
+	$wp_customize->add_setting(
+		'widthHeader',
+		array(
+			'default' => '1000',
+			'transport' => 'refresh',
+			'type' => 'option',
+		)
+	);
+
+	$wp_customize->add_control(
+		'controlID2',
+		array(
+			'settings' => 'widthHeader',
+			'label' => 'ヘッダーの幅',
+			'description' => 'デフォルト値:1000px',
+			'section' => 'gakkaiControl2',
+			'type' => 'text',
+		)
+	);
+
+
+	// ヘッダーの固定・追従
+	$wp_customize->add_setting(
+		'fixHeader',
+		array(
+			'type' => 'option'
+		)
+	);
+	$wp_customize->add_control(
+		'controlID3',
+		array(
+			'settings' => 'fixHeader',
+			'label' => 'ヘッダー固定か追従',
+			'description' => 'デフォルト値：fixed',
+			'section' => 'gakkaiControl2',
+			'type' => 'radio',
+			'choices' => array(
+				'fixed' => '固定（fixed）',
+				'relative' => '追従（relative）'
+			),
+		)
+	);
+
+	// ヘッダーの高さ
+	$wp_customize->add_setting(
+		'headerHeight',
+		array(
+			'default' => '100',
+			'transport' => 'refresh',
+			'type' => 'option',
+		)
+	);
+
+	$wp_customize->add_control(
+		'controlID4',
+		array(
+			'settings' => 'headerHeight',
+			'label' => 'ヘッダーの高さ',
+			'description' => 'デフォルト値:100px',
+			'section' => 'gakkaiControl2',
+			'type' => 'text',
+		)
+	);
+
+
+	// 背景色
+	$wp_customize->add_setting(
+		'controlID5',
+		array(
+			'default' => '#e6e6e6',
+			'sanitize_callback' => 'sanitize_text_field',
+		)
+	);
+	$wp_customize->add_control(
+		new WP_Customize_Color_Control(
+			$wp_customize,
+			'controlID5',
+			array(
+				'label' => __('ヘッダーカラー', 'hedcolor'),
+				'section' => 'gakkaiControl2',
+				'settings' => 'controlID5',
+			)
+		)
+	);
+}
+
+add_action('customize_register', 'set_header_customizer');
+
+//セットした画像のURLを取得
+function get_header_img()
+{
+	return esc_url(get_theme_mod('set_header_img'));
+}
+
+
+
+//////////////////////////////////////////////////////
+// 学会テーマカスタマイザー：画像
+//////////////////////////////////////////////////////
+
 function set_image_cutomizer($wp_customize)
 {
 
@@ -512,7 +476,6 @@ function set_image_cutomizer($wp_customize)
 	);
 }
 
-//カスタマイザーに登録
 add_action('customize_register', 'set_image_cutomizer');
 
 
@@ -536,6 +499,164 @@ function get_image_url4()
 {
 	return esc_url(get_theme_mod('set_img_url4'));
 }
+
+
+
+//////////////////////////////////////////////////////
+// 色
+//////////////////////////////////////////////////////
+
+function set_color_customizer($wp_customize)
+{
+
+	// 背景色
+	$wp_customize->add_setting(
+		'gemstone_bg_color',
+		array(
+			'default' => '#e6e6e6',
+			'sanitize_callback' => 'sanitize_text_field',
+		)
+	);
+	$wp_customize->add_control(
+		new WP_Customize_Color_Control(
+			$wp_customize,
+			'gemstone_bg_color',
+			array(
+				'label' => __('背景色', 'gemstone'),
+				'section' => 'colors',
+				'settings' => 'gemstone_bg_color',
+			)
+		)
+	);
+
+	// リンク文字カラー:static
+	$wp_customize->add_setting(
+		'gemstone_link_color',
+		array(
+			'default' => '#f00',
+			'sanitize_callback' => 'sanitize_text_field',
+		)
+	);
+	$wp_customize->add_control(
+		new WP_Customize_Color_Control(
+			$wp_customize,
+			'gemstone_link_color',
+			array(
+				'label' => __('リンク文字カラー:static', 'gemstone'),
+				'section' => 'colors',
+				'settings' => 'gemstone_link_color',
+			)
+		)
+	);
+
+	// リンク文字カラー:hover
+	$wp_customize->add_setting(
+		'gemstone_hover_color',
+		array(
+			'default' => '#000',
+			'sanitize_callback' => 'sanitize_text_field',
+		)
+	);
+	$wp_customize->add_control(
+		new WP_Customize_Color_Control(
+			$wp_customize,
+			'gemstone_hover_color',
+			array(
+				'label' => __('リンク文字カラー:hover', 'gemstone'),
+				'section' => 'colors',
+				'settings' => 'gemstone_hover_color',
+			)
+		)
+	);
+
+	// ナビゲーション文字カラー:static
+	$wp_customize->add_setting(
+		'gemstone_navlink_color',
+		array(
+			'default' => '#000',
+			'sanitize_callback' => 'sanitize_text_field',
+		)
+	);
+	$wp_customize->add_control(
+		new WP_Customize_Color_Control(
+			$wp_customize,
+			'gemstone_navlink_color',
+			array(
+				'label' => __('ナビゲーション文字カラー:static', 'gemstone'),
+				'section' => 'colors',
+				'settings' => 'gemstone_navlink_color',
+			)
+		)
+	);
+
+	// ナビゲーション文字カラー:hover
+	$wp_customize->add_setting(
+		'gemstone_navhover_color',
+		array(
+			'default' => '#444',
+			'sanitize_callback' => 'sanitize_text_field',
+		)
+	);
+	$wp_customize->add_control(
+		new WP_Customize_Color_Control(
+			$wp_customize,
+			'gemstone_navhover_color',
+			array(
+				'label' => __('ナビゲーション文字カラー:hover', 'gemstone'),
+				'section' => 'colors',
+				'settings' => 'gemstone_navhover_color',
+			)
+		)
+	);
+
+	// ナビゲーション背景カラー:static
+	$wp_customize->add_setting(
+		'gemstone_navbg_color',
+		array(
+			'default' => '#fff',
+			'sanitize_callback' => 'sanitize_text_field',
+		)
+	);
+	$wp_customize->add_control(
+		new WP_Customize_Color_Control(
+			$wp_customize,
+			'gemstone_navbg_color',
+			array(
+				'label' => __('ナビゲーション背景カラー:static', 'gemstone'),
+				'section' => 'colors',
+				'settings' => 'gemstone_navbg_color',
+			)
+		)
+	);
+
+	// ナビゲーション背景カラー:hover
+	$wp_customize->add_setting(
+		'gemstone_navbghover_color',
+		array(
+			'default' => '#eee',
+			'sanitize_callback' => 'sanitize_text_field',
+		)
+	);
+	$wp_customize->add_control(
+		new WP_Customize_Color_Control(
+			$wp_customize,
+			'gemstone_navbghover_color',
+			array(
+				'label' => __('ナビゲーション背景カラー:hover', 'gemstone'),
+				'section' => 'colors',
+				'settings' => 'gemstone_navbghover_color',
+			)
+		)
+	);
+}
+
+add_action('customize_register', 'set_color_customizer');
+
+
+
+
+
+
 
 
 /**

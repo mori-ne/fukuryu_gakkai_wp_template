@@ -1,8 +1,17 @@
 <!-- /* テーマカスタマイザー用スタイル start*/ -->
 <style>
     #header {
-        position: <?php echo get_option('fixHeader'); ?>;
+        <?php if (get_option('widHeader', 'fullwidth') == 'fullwidth') : ?>width: 100% !important;
+        <?php else : ?>width: <?php echo get_option('widthHeader'); ?>px !important;
+        margin: 0 auto;
+        <?php endif; ?><?php if (get_header_img()) ?>background: url(<?php echo get_header_img(); ?> ) no-repeat;
+        background-size: cover;
+        position: <?php echo get_option('fixHeader'); ?> !important;
+        inset: 0;
+        margin: 0 auto;
+
         height: <?php echo get_option('headerHeight'); ?>px !important;
+        background-color: <?php echo get_theme_mod('controlID5'); ?>;
     }
 
     .logo {
@@ -11,7 +20,7 @@
     }
 
     #main {
-        <?php if (get_option('fixHeader', 'fixed') == 'fixed') : ?>margin-top: 120px !important;
+        <?php if (get_option('fixHeader', 'fixed') == 'fixed') : ?>margin-top: <?php echo get_option('headerHeight'); ?>px !important;
         <?php else : ?>margin-top: 0px !important;
         <?php endif; ?>
     }
