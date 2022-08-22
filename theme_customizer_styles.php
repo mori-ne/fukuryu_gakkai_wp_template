@@ -62,6 +62,10 @@
         background: <?php echo get_theme_mod('gemstone_navbg_color'); ?> !important;
     }
 
+    li.menu-item a {
+        background: <?php echo get_theme_mod('gemstone_navbg_color'); ?> !important;
+    }
+
     <?php endif; ?>a {
         color: <?php echo get_theme_mod('gemstone_link_color'); ?>;
     }
@@ -72,13 +76,24 @@
         color: <?php echo get_theme_mod('gemstone_hover_color'); ?>;
     }
 
-    li.page_item a {
+    li.page_item>a {
         color: <?php echo get_theme_mod('gemstone_navlink_color');  ?> !important;
         height: <?php echo get_option('navHeight') ?>px !important;
         width: <?php echo get_option('navWidth') ?>px !important;
     }
 
-    li.page_item a:hover {
+    li.page_item>a:hover {
+        color: <?php echo get_theme_mod('gemstone_navhover_color'); ?> !important;
+        background: <?php echo get_theme_mod('gemstone_navbghover_color'); ?> !important;
+    }
+
+    .menu-item>a {
+        color: <?php echo get_theme_mod('gemstone_navlink_color');  ?> !important;
+        height: <?php echo get_option('navHeight') ?>px !important;
+        width: <?php echo get_option('navWidth') ?>px !important;
+    }
+
+    .menu-item>a:hover {
         color: <?php echo get_theme_mod('gemstone_navhover_color'); ?> !important;
         background: <?php echo get_theme_mod('gemstone_navbghover_color'); ?> !important;
     }

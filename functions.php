@@ -67,7 +67,7 @@ function set_layout_customizer($wp_customize)
 		)
 	);
 	$wp_customize->add_control(
-		'controlID3',
+		'controlID2',
 		array(
 			'settings' => 'pageWidth',
 			'label' => 'ページ幅（単位も記述px,%等）',
@@ -313,7 +313,7 @@ function set_header_customizer($wp_customize)
 	);
 
 	$wp_customize->add_control(
-		'controlID2',
+		'controlID1',
 		array(
 			'settings' => 'widthHeader',
 			'label' => 'ヘッダーの幅',
