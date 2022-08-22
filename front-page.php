@@ -49,7 +49,7 @@
                 <nav class="global-nav">
                     <?php
                     wp_nav_menu(array(
-                        'theme_location' => 'main-menu'
+                        'theme_location' => 'navigation-menu'
                     ));
                     ?>
                 </nav>
@@ -66,14 +66,14 @@
             <main id="contents">
 
                 <div class="mv">
-                    <dl>
+                    <!-- <dl>
                         <dt>会期</dt>
                         <dd>2022年6月11日(土)・12日(日)</dd>
                     </dl>
                     <dl>
                         <dt>会期</dt>
                         <dd>2022年6月11日(土)・12日(日)</dd>
-                    </dl>
+                    </dl> -->
                 </div>
 
 
