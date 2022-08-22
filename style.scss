@@ -360,3 +360,23 @@ h6 {
     justify-content: center;
     background: $main-bg;
 }
+
+.desable {
+    cursor: default;
+    pointer-events: none;
+}
+
+.footer_menu {
+    width: 1000px;
+    margin: 0 auto;
+    background: #eee;
+    padding: $space;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 30px;
+
+    .footer_widget_area {
+        width: 50%;
+    }
+}

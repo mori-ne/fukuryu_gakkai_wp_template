@@ -161,7 +161,7 @@
         <!-- フッター -->
         <footer id="footer">
             <?php if (is_active_sidebar('footer')) : ?>
-                <ul class="menu">
+                <ul class="footer_menu">
                     <?php dynamic_sidebar('footer'); ?>
                 </ul>
             <?php endif; ?>

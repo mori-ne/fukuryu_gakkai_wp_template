@@ -2,7 +2,7 @@
 /*
 Theme Name: (有)福琉印刷学会テーマ 2022
 Author: morine
-Version: alpha
+Version: 0820
 */
 /* ------------------------------------------------------------------ */
 /* --------------------    調整項目    ------------------------------- */
@@ -254,4 +254,23 @@ h6 {
   align-items: center;
   justify-content: center;
   background: rgb(255, 255, 255);
+}
+
+.desable {
+  cursor: default;
+  pointer-events: none;
+}
+
+.footer_menu {
+  width: 1000px;
+  margin: 0 auto;
+  background: #eee;
+  padding: 25px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 30px;
+}
+.footer_menu .footer_widget_area {
+  width: 50%;
 }/*# sourceMappingURL=style.css.map */
