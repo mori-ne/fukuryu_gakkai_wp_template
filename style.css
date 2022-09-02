@@ -111,6 +111,7 @@ h6 {
 
 #contents {
   width: 100%;
+  overflow: hidden;
 }
 #pagetop {
   position: fixed;
@@ -211,7 +212,9 @@ h6 {
 .news dl dt {
   font-size: 0.8em;
   font-weight: normal;
-  margin: 0 25px 0 0;
+  min-width: 110px;
+  max-width: 110px;
+  margin: 0 15px 0 0;
 }
 .news dl dt span {
   font-size: 0.5em;
@@ -219,6 +222,7 @@ h6 {
   color: #f00;
 }
 .news dl dd {
+  width: 100%;
   font-size: 0.9em;
   line-height: 1.5;
 }

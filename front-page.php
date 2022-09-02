@@ -105,7 +105,8 @@
                                 $args = array("posts_per_page" => 10,);
                                 $postslist = get_posts($args);
                                 foreach ($postslist as $post) :
-                                    setup_postdata($post); ?>
+                                    setup_postdata($post);
+                                ?>
 
                                     <dl>
                                         <dt>

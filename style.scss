@@ -192,10 +192,12 @@ h6 {
 
 #contents {
     width: 100%;
+    overflow: hidden;
 
     article {
         // margin: 0 $space 0 0;
     }
+
 }
 
 #pagetop {
@@ -308,8 +310,9 @@ h6 {
         dt {
             font-size: 0.8em;
             font-weight: normal;
-
-            margin: 0 $space 0 0;
+            min-width: 110px;
+            max-width: 110px;
+            margin: 0 15px 0 0;
 
             span {
                 font-size: 0.5em;
@@ -319,6 +322,7 @@ h6 {
         }
 
         dd {
+            width: 100%;
             font-size: 0.9em;
             line-height: 1.5;
         }
